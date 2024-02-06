@@ -1,0 +1,220 @@
+[
+    {
+        "id": "0471436e1549dd3d",
+        "type": "tab",
+        "label": "Поток 1",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5bd5ee3988623388",
+        "type": "ui_text_input",
+        "z": "0471436e1549dd3d",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "fd9afa0c135a2726",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "color",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "f19ef5fa0c51e9db"
+            ]
+        ]
+    },
+    {
+        "id": "21dc96b36ab57151",
+        "type": "ui_slider",
+        "z": "0471436e1549dd3d",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "fd9afa0c135a2726",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 430,
+        "y": 240,
+        "wires": [
+            [
+                "c30d208ad311f916",
+                "38da86cd92303692"
+            ]
+        ]
+    },
+    {
+        "id": "38da86cd92303692",
+        "type": "ui_gauge",
+        "z": "0471436e1549dd3d",
+        "name": "",
+        "group": "fd9afa0c135a2726",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Измерение",
+        "label": "Единицы",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 670,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "27b33dcac1cafa5b",
+        "type": "mqtt in",
+        "z": "0471436e1549dd3d",
+        "name": "",
+        "topic": "lamp/rgb",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "812556a2f2cfb89e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "5bd5ee3988623388"
+            ]
+        ]
+    },
+    {
+        "id": "8e821c9966c46bc5",
+        "type": "mqtt in",
+        "z": "0471436e1549dd3d",
+        "name": "",
+        "topic": "lamp/brightness",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "812556a2f2cfb89e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 240,
+        "wires": [
+            [
+                "21dc96b36ab57151"
+            ]
+        ]
+    },
+    {
+        "id": "f19ef5fa0c51e9db",
+        "type": "mqtt out",
+        "z": "0471436e1549dd3d",
+        "name": "lamp/rgb",
+        "topic": "lamp/rgb",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "812556a2f2cfb89e",
+        "x": 740,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c30d208ad311f916",
+        "type": "mqtt out",
+        "z": "0471436e1549dd3d",
+        "name": "",
+        "topic": "lamp/brightness",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "812556a2f2cfb89e",
+        "x": 780,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "fd9afa0c135a2726",
+        "type": "ui_group",
+        "name": "Лампочка",
+        "tab": "0b744f8b6d799c3b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "812556a2f2cfb89e",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0b744f8b6d799c3b",
+        "type": "ui_tab",
+        "name": "Темпа",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
